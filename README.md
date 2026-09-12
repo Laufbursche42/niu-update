@@ -1,7 +1,8 @@
 # niu-update
 
-`update.json` für den Manual-Update-Mod der gepatchten NIU-App 4.8.12. Eingespielt wird die
-US-Firmware für den FOC-Controller des NIU KQi 300X.
+`update.json` für den Manual-Update-Mod der gepatchten NIU-App 4.8.12
+(https://files.catbox.moe/lxckb9.apk). Eingespielt wird die US-Firmware für den FOC-Controller des
+NIU KQi 300X.
 
 Voraussetzung ist eine App, die den Bildschirm "Niu Manual Update" enthält. In der ungepatchten
 App gibt es diesen Weg nicht.
