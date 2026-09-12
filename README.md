@@ -4,6 +4,20 @@
 (https://files.catbox.moe/lxckb9.apk). Eingespielt wird die FOC-Firmware des Motor-Controllers,
 je Modell in den drei Regionen DE, EU und US.
 
+**Webseite mit Filter und allen Links: https://laufbursche42.github.io/niu-update/**
+
+## Quelle
+
+Die Firmware stammt unverändert aus den beiden Community-Repos:
+
+- KQi2 und KQi3: https://github.com/scooterhacking/niu_scooters
+- KQi 300X: https://github.com/hjcday/KQi-300X-Firmware
+
+Von dort übernommen sind nur die `update.json`. Da es Nutzer gab, die mit den `update.json` aus
+diesen Repos Probleme hatten, wurden sie angepasst und werden hier neu bereitgestellt.
+
+Die Binaries liegen nicht in diesem Repo. Jede `update.json` verweist auf das Quell-Repo.
+
 ## URLs
 
 Fertige Links zum Kopieren, pro Modell und Region. Reihenfolge je Block: Region, Limit,
@@ -80,9 +94,6 @@ offiziell angegeben.
 Falls eine URL nicht angenommen wird, liefert dieselbe Datei auch
 `https://raw.githubusercontent.com/Laufbursche42/niu-update/main/MODELL/REGION/update.json`.
 
-Die Binaries liegen nicht in diesem Repo. Jede `update.json` verweist auf das Quell-Repo,
-`scooterhacking/niu_scooters` für KQi2 und KQi3, `hjcday/KQi-300X-Firmware` für den 300X.
-
 ## In der App eintragen
 
 1. App öffnen und auf **Einstellungen** -> **Über** gehen. Es öffnet sich der Bildschirm
@@ -116,7 +127,8 @@ Speicher so leeren:
 3. App neu starten, anmelden und den E-Scooter neu verbinden
 4. Die URL wie oben beschrieben neu eintragen, sie wurde beim Löschen mit entfernt
 
-Das Löschen entfernt auch Login und Bindung.
+Das Löschen entfernt auch die Anmeldung, du musst dich neu einloggen. Die Bindung des E-Scooters
+liegt auf dem NIU-Server und bleibt dabei erhalten.
 
 ## Rechtlicher Hinweis
 

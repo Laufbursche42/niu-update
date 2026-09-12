@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<!-- frame-ancestors wird in einem meta-Element vom Browser ignoriert, es wirkt nur als HTTP-Header.
+     GitHub Pages sendet keine eigenen Header, darum steht es hier nicht. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-t="pageTitle">Laufbursche NIU Firmware Updater</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Laufbursche <span data-t="brandSub"></span></h1>
+    <div class="head-right">
+      <div class="head-tools">
+        <button type="button" class="theme-btn" id="btn-theme">&#9728;</button>
+        <div class="langs" id="langs" role="group">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="card">
+    <h2 data-t="s1Title"></h2>
+    <p class="hint" data-t="sub"></p>
+    <p class="warn" data-t="expWarn"></p>
+    <p class="hint" data-t="ownDevice"></p>
+  </div>
+
+  <div class="card">
+    <h2 data-t="srcTitle"></h2>
+    <p class="hint" data-t="srcHint"></p>
+    <div class="linkrow">
+      <span class="lbl" data-t="srcShLabel"></span>
+      <a href="https://github.com/scooterhacking/niu_scooters" target="_blank" rel="noopener noreferrer">scooterhacking/niu_scooters</a>
+    </div>
+    <div class="linkrow">
+      <span class="lbl" data-t="srcHjLabel"></span>
+      <a href="https://github.com/hjcday/KQi-300X-Firmware" target="_blank" rel="noopener noreferrer">hjcday/KQi-300X-Firmware</a>
+    </div>
+    <p class="hint" data-t="srcFix"></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2 data-t="appTitle"></h2><button type="button" class="help-btn" data-help="app" aria-label="Info">?</button></div>
+    <p class="hint" data-t="appHint"></p>
+    <div class="linkrow">
+      <span class="lbl" data-t="appApkLabel"></span>
+      <a href="https://files.catbox.moe/lxckb9.apk" target="_blank" rel="noopener noreferrer">files.catbox.moe/lxckb9.apk</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="filterTitle"></h2>
+    <div class="chips" id="chips-model" role="group"></div>
+    <div class="chips" id="chips-region" role="group"></div>
+    <p class="hint" data-t="filterHint"></p>
+  </div>
+
+  <div id="results"></div>
+  <p class="hint" id="inferred-note" data-t="inferredNote" hidden></p>
+
+  <div class="card">
+    <div class="card-head"><h2 data-t="stepsTitle"></h2><button type="button" class="help-btn" data-help="steps" aria-label="Info">?</button></div>
+    <ol class="steps">
+      <li data-t="step1"></li>
+      <li data-t="step2"></li>
+      <li data-t="step3"></li>
+      <li data-t="step4"></li>
+      <li data-t="step5"></li>
+    </ol>
+    <p class="hint" data-t="stepsNote"></p>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2 data-t="dataTitle"></h2><button type="button" class="help-btn" data-help="data" aria-label="Info">?</button></div>
+    <p class="hint" data-t="dataWhy"></p>
+    <ol class="steps">
+      <li data-t="dataStep1"></li>
+      <li data-t="dataStep2"></li>
+      <li data-t="dataStep3"></li>
+      <li data-t="dataStep4"></li>
+    </ol>
+    <p class="warn" data-t="dataNote"></p>
+  </div>
+
+  <footer class="foot">
+    <span class="foot-links">
+      <a href="https://github.com/Laufbursche42/niu-update" target="_blank" rel="noopener noreferrer" data-t="footSource"></a>
+      <a href="https://github.com/Laufbursche42/niu-update/blob/main/README.md" target="_blank" rel="noopener noreferrer" data-t="footReadme"></a>
+      <a id="link-disclaimer" href="#" data-t="footDisclaimer"></a>
+      <a id="link-privacy" href="https://github.com/Laufbursche42/niu-update/blob/main/PRIVACY.de.md" target="_blank" rel="noopener noreferrer" data-t="footPrivacy"></a>
+      <a id="link-trademarks" href="https://github.com/Laufbursche42/niu-update/blob/main/TRADEMARKS.de.md" target="_blank" rel="noopener noreferrer" data-t="footTrademarks"></a>
+    </span>
+    <span class="ver" id="build-ver"></span>
+  </footer>
+</div>
+
+<dialog id="help" aria-labelledby="help-title">
+  <div class="doc-head">
+    <h3 id="help-title"></h3>
+    <button type="button" id="help-x">&times;</button>
+  </div>
+  <div class="doc-body"><p id="help-body"></p></div>
+  <div class="doc-foot">
+    <button type="button" id="help-close" data-t="docClose"></button>
+  </div>
+</dialog>
+
+<script src="i18n.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
