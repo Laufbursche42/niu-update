@@ -1,0 +1,19 @@
+{
+    "status": 0,
+    "data": {
+        "updateid": "1",
+        "items": [
+            {
+                "devicetype": "FOC",
+                "hasnew": true,
+                "version": "K3E38J23",
+                "date": 1659087946391,
+                "size": 27412,
+                "trans_encryption": 2,
+                "desc": "FOC DE 21 km/h",
+                "devicetype_name": "FOC",
+                "url": "https://github.com/scooterhacking/niu_scooters/raw/main/KQI3/Max/DE/OTA_NIU_K3E38J23_21KPH_MAX_220718.bin"
+            }
+        ]
+    }
+}

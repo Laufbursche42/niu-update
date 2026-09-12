@@ -1,0 +1,19 @@
+{
+    "status": 0,
+    "data": {
+        "updateid": "1",
+        "items": [
+            {
+                "devicetype": "FOC",
+                "hasnew": true,
+                "version": "K3E01J23",
+                "date": 1659087754544,
+                "size": 27836,
+                "trans_encryption": 2,
+                "desc": "FOC EU 25 km/h",
+                "devicetype_name": "FOC",
+                "url": "https://github.com/scooterhacking/niu_scooters/raw/main/KQI3/Sport/EU/OTA_NIU_K3E01J23_25KPH_Sport_220718.bin"
+            }
+        ]
+    }
+}

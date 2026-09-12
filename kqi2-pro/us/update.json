@@ -1,0 +1,19 @@
+{
+    "status": 0,
+    "data": {
+        "updateid": "1",
+        "items": [
+            {
+                "devicetype": "FOC",
+                "hasnew": true,
+                "version": "K2E13J23",
+                "date": 1659087892383,
+                "size": 27956,
+                "trans_encryption": 2,
+                "desc": "FOC US 28 km/h",
+                "devicetype_name": "FOC",
+                "url": "https://github.com/scooterhacking/niu_scooters/raw/main/KQI2/Pro/US/OTA_NIU_K2E13J23_28KPH_Pro_220718.bin"
+            }
+        ]
+    }
+}
