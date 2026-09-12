@@ -4,46 +4,81 @@
 (https://files.catbox.moe/lxckb9.apk). Eingespielt wird die FOC-Firmware des Motor-Controllers,
 je Modell in den drei Regionen DE, EU und US.
 
-## URL zum Kopieren
+## URLs
+
+Fertige Links zum Kopieren, pro Modell und Region. Reihenfolge je Block: Region, Limit,
+Version, Größe in Byte. Die Größe muss exakt stimmen, die App verwirft den Download sonst.
+
+### KQi2 Pro
 
 ```
-https://github.com/Laufbursche42/niu-update/raw/main/MODELL/REGION/update.json
+DE  20 km/h  K2E38J23  27544
+https://github.com/Laufbursche42/niu-update/raw/main/kqi2-pro/de/update.json
+
+EU  25 km/h  K2E01J23  27956
+https://github.com/Laufbursche42/niu-update/raw/main/kqi2-pro/eu/update.json
+
+US  28 km/h  K2E13J23  27956
+https://github.com/Laufbursche42/niu-update/raw/main/kqi2-pro/us/update.json
 ```
 
-`REGION` ist `de`, `eu` oder `us`. Beispiel für den KQi 300X mit US-Firmware:
+### KQi3 Sport
 
 ```
+DE  20 km/h  K3E38J23  27456
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-sport/de/update.json
+
+EU  25 km/h  K3E01J23  27836
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-sport/eu/update.json
+
+US  28 km/h  K3E13J23  27828
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-sport/us/update.json
+```
+
+### KQi3 Pro
+
+```
+DE  20 km/h  K3E38J23  27196
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-pro/de/update.json
+
+EU  25 km/h  K3E01J23  27576
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-pro/eu/update.json
+
+US  32 km/h  K3E13J23  27608
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-pro/us/update.json
+```
+
+### KQi3 Max
+
+```
+DE  21 km/h  K3E38J23  27412
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-max/de/update.json
+
+EU  25 km/h  K3E01J23  27820
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-max/eu/update.json
+
+US  32 km/h  K3E13J23  27792
+https://github.com/Laufbursche42/niu-update/raw/main/kqi3-max/us/update.json
+```
+
+### KQi 300X
+
+```
+DE  21 km/h *  KBE38D05  29696
+https://github.com/Laufbursche42/niu-update/raw/main/kqi-300x/de/update.json
+
+EU  25 km/h *  KBE01D03  29696
+https://github.com/Laufbursche42/niu-update/raw/main/kqi-300x/eu/update.json
+
+US  32 km/h *  KBE13D03  29696
 https://github.com/Laufbursche42/niu-update/raw/main/kqi-300x/us/update.json
 ```
 
-Der Mod ruft die URL per GET ab. Falls eine Schreibweise nicht angenommen wird, liefert
-`https://raw.githubusercontent.com/Laufbursche42/niu-update/main/MODELL/REGION/update.json`
-denselben Inhalt.
-
-## Verfügbare Firmware
-
-| Modell | Ordner | Region | Version | Limit | Größe |
-|---|---|---|---|---|---|
-| KQi2 Pro | `kqi2-pro` | DE | K2E38J23 | 20 km/h | 27544 |
-| KQi2 Pro | `kqi2-pro` | EU | K2E01J23 | 25 km/h | 27956 |
-| KQi2 Pro | `kqi2-pro` | US | K2E13J23 | 28 km/h | 27956 |
-| KQi3 Sport | `kqi3-sport` | DE | K3E38J23 | 20 km/h | 27456 |
-| KQi3 Sport | `kqi3-sport` | EU | K3E01J23 | 25 km/h | 27836 |
-| KQi3 Sport | `kqi3-sport` | US | K3E13J23 | 28 km/h | 27828 |
-| KQi3 Pro | `kqi3-pro` | DE | K3E38J23 | 20 km/h | 27196 |
-| KQi3 Pro | `kqi3-pro` | EU | K3E01J23 | 25 km/h | 27576 |
-| KQi3 Pro | `kqi3-pro` | US | K3E13J23 | 32 km/h | 27608 |
-| KQi3 Max | `kqi3-max` | DE | K3E38J23 | 21 km/h | 27412 |
-| KQi3 Max | `kqi3-max` | EU | K3E01J23 | 25 km/h | 27820 |
-| KQi3 Max | `kqi3-max` | US | K3E13J23 | 32 km/h | 27792 |
-| KQi 300X | `kqi-300x` | DE | KBE38D05 | 21 km/h * | 29696 |
-| KQi 300X | `kqi-300x` | EU | KBE01D03 | 25 km/h * | 29696 |
-| KQi 300X | `kqi-300x` | US | KBE13D03 | 32 km/h * | 29696 |
-
-Größe in Byte. Sie muss exakt stimmen, die App verwirft den Download sonst.
-
 \* Beim 300X steht kein Limit im Dateinamen. Die Werte sind aus der Firmware ermittelt, nicht
 offiziell angegeben.
+
+Falls eine URL nicht angenommen wird, liefert dieselbe Datei auch
+`https://raw.githubusercontent.com/Laufbursche42/niu-update/main/MODELL/REGION/update.json`.
 
 Die Binaries liegen nicht in diesem Repo. Jede `update.json` verweist auf das Quell-Repo,
 `scooterhacking/niu_scooters` für KQi2 und KQi3, `hjcday/KQi-300X-Firmware` für den 300X.
