@@ -58,6 +58,7 @@ window.I18N = {
     footPrivacy: "Datenschutz",
     footTrademarks: "Marken",
     docClose: "Schließen",
+    sunsetBannerHtml: "<b>Dieses Tool zieht um.</b> Dieses Repo wird <b>nicht mehr weiterentwickelt</b> - bitte wechsle zum neuen Tool: <a href=\"https://lb-tool-web.laufbursche.workers.dev/\" target=\"_blank\" rel=\"noopener\">lb-tool-web.laufbursche.workers.dev</a>. Probleme beim Wechsel? Öffne ein <a href=\"https://github.com/Laufbursche42/Laufbursche42/issues/new\" target=\"_blank\" rel=\"noopener\">Issue auf GitHub</a> oder schick eine <a href=\"https://www.escooter-stammtisch.de/index.php?user/6497-laufbursche/\" target=\"_blank\" rel=\"noopener\">PN im eScooter-Stammtisch</a>.",
     buildLabel: "Build",
 
     helpAppTitle: "Gepatchte App",
@@ -125,6 +126,7 @@ window.I18N = {
     footPrivacy: "Privacy",
     footTrademarks: "Trademarks",
     docClose: "Close",
+    sunsetBannerHtml: "<b>This tool is moving.</b> This repository is <b>no longer maintained</b> - please switch to the new tool: <a href=\"https://lb-tool-web.laufbursche.workers.dev/\" target=\"_blank\" rel=\"noopener\">lb-tool-web.laufbursche.workers.dev</a>. Trouble switching? Open an <a href=\"https://github.com/Laufbursche42/Laufbursche42/issues/new\" target=\"_blank\" rel=\"noopener\">issue on GitHub</a> or send a <a href=\"https://www.escooter-stammtisch.de/index.php?user/6497-laufbursche/\" target=\"_blank\" rel=\"noopener\">PM on the eScooter-Stammtisch forum</a>.",
     buildLabel: "build",
 
     helpAppTitle: "Patched app",

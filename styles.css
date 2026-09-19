@@ -75,6 +75,11 @@ label { color: var(--label); font-size: 12px; text-transform: uppercase; letter-
 .warn { color: var(--warn); font-size: 12px; background: var(--warn-bg); border: 1px solid var(--warn-line);
   border-radius: 8px; padding: 9px 11px; margin: 0; }
 .warn b { color: var(--warn-strong); }
+/* Deprecation banner: red tone, always visible, cannot be dismissed. */
+.sunset-banner { background: var(--bad-bg); border: 1px solid var(--bad-line); border-radius: 10px;
+  padding: 11px 14px; font-size: 12px; line-height: 1.5; color: var(--text); }
+.sunset-banner b { color: var(--bad-strong); }
+.sunset-banner a { color: var(--bad-strong); text-decoration: underline; }
 code { font-family: var(--mono); font-size: 12px; background: var(--field); border: 1px solid var(--line);
   border-radius: 5px; padding: 1px 5px; color: var(--value); word-break: break-all; }
 
