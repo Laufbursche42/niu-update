@@ -53,6 +53,7 @@ window.I18N = {
     srcHjLabel: "Original-Repo KQi 300X",
 
     footSource: "Quellcode",
+    footIssue: "Fehler melden",
     footReadme: "Readme",
     footDisclaimer: "Haftungsausschluss",
     footPrivacy: "Datenschutz",
@@ -121,6 +122,7 @@ window.I18N = {
     srcHjLabel: "Original repo for the KQi 300X",
 
     footSource: "Source",
+    footIssue: "Report an issue",
     footReadme: "Readme",
     footDisclaimer: "Disclaimer",
     footPrivacy: "Privacy",
