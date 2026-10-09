@@ -64,7 +64,7 @@ function mdToHtml(md) {
 // BASE gebaut und zeigen auf die update.json dieses Repos. Design und Mechanik (Theme, Sprache,
 // Modal, Kopieren) entsprechen den übrigen Laufbursche-Seiten.
 
-const BUILD = 'v2';
+const BUILD = 'v3';
 
 const BASE = 'https://github.com/Laufbursche42/niu-update/raw/main/';
 // Die Dokumente im Fuß werden auf GitHub gerendert verlinkt, sprachabhängig wie in sf-unlock.
