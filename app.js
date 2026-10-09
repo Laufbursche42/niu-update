@@ -1,12 +1,70 @@
 'use strict';
 
+// Shared markdown-to-HTML renderer (fleet-wide); kept at module scope.
+function mdToHtml(md) {
+  var codeBlocks = [];
+  // 1) pull fenced code blocks out first so their content is never treated as markdown
+  md = String(md).replace(/```[^\n]*\n?([\s\S]*?)```/g, function (m, code) {
+    var i = codeBlocks.length;
+    codeBlocks.push('<pre><code>' + esc(code.replace(/\n$/, '')) + '</code></pre>');
+    return '\x00CB' + i + '\x00';
+  });
+  var lines = md.split(/\r?\n/);
+  var out = [], para = [], list = null;
+  function flushPara() { if (para.length) { out.push('<p>' + inlineMd(esc(para.join(' '))) + '</p>'); para = []; } }
+  function flushList() { if (list) { out.push('<' + list.type + '>' + list.items.join('') + '</' + list.type + '>'); list = null; } }
+  function isTableSep(s) { var tt = s.replace(/\s/g, ''); return /^\|?:?-+:?(\|:?-+:?)+\|?$/.test(tt); }
+  function splitRow(s) { return s.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(function (c) { return c.trim(); }); }
+  for (var i = 0; i < lines.length; i++) {
+    var ln = lines[i];
+    var cb = ln.match(/^\x00CB(\d+)\x00$/);
+    if (cb) { flushPara(); flushList(); out.push(codeBlocks[Number(cb[1])]); continue; }
+    if (/^\s*$/.test(ln)) { flushPara(); flushList(); continue; }
+    var h = ln.match(/^(#{1,6})\s+(.*)$/);
+    if (h) { flushPara(); flushList(); var lvl = Math.min(h[1].length, 4); out.push('<h' + lvl + '>' + inlineMd(esc(h[2])) + '</h' + lvl + '>'); continue; }
+    if (/^---+$/.test(ln.trim())) { flushPara(); flushList(); out.push('<hr>'); continue; }
+    if (ln.indexOf('|') >= 0 && i + 1 < lines.length && isTableSep(lines[i + 1])) {   // GFM table: header, |---| sep, rows
+      flushPara(); flushList();
+      var head = splitRow(ln); i++;   // consume the separator row
+      var body = '';
+      while (i + 1 < lines.length && lines[i + 1].indexOf('|') >= 0 && lines[i + 1].trim() !== '') {
+        body += '<tr>' + splitRow(lines[++i]).map(function (c) { return '<td>' + inlineMd(esc(c)) + '</td>'; }).join('') + '</tr>';
+      }
+      out.push('<table><thead><tr>' + head.map(function (c) { return '<th>' + inlineMd(esc(c)) + '</th>'; }).join('') + '</tr></thead><tbody>' + body + '</tbody></table>');
+      continue;
+    }
+    if (/^\s*>/.test(ln)) {                             // merge consecutive > lines into ONE callout
+      flushPara(); flushList();
+      var q = [];
+      while (i < lines.length && /^\s*>/.test(lines[i])) { q.push(lines[i].replace(/^\s*>\s?/, '')); i++; }
+      i--;                                              // step back; the for-loop re-increments
+      while (q.length && /^\s*$/.test(q[0])) q.shift();
+      while (q.length && /^\s*$/.test(q[q.length - 1])) q.pop();
+      if (q.length) out.push('<blockquote>' + mdToHtml(q.join('\n')) + '</blockquote>');  // inner rendered as markdown
+      continue;
+    }
+    var ul = ln.match(/^\s*[-*]\s+(.*)$/);
+    var ol = ln.match(/^\s*\d+\.\s+(.*)$/);
+    if (ul || ol) {
+      flushPara();
+      var type = ul ? 'ul' : 'ol';
+      if (!list || list.type !== type) { flushList(); list = { type: type, items: [] }; }
+      list.items.push('<li>' + inlineMd(esc((ul ? ul[1] : ol[1]))) + '</li>');
+      continue;
+    }
+    para.push(ln.trim());
+  }
+  flushPara(); flushList();
+  return out.join('\n');
+}
+
 // Laufbursche NIU Firmware Updater: statische Liste der update.json-Links je Modell und Region.
 // Copyright (c) 2026 Laufbursche (https://github.com/Laufbursche42)
 // Die Seite spricht mit keinem Server. Alle Einträge stehen unten in FIRMWARE, die URLs werden aus
 // BASE gebaut und zeigen auf die update.json dieses Repos. Design und Mechanik (Theme, Sprache,
 // Modal, Kopieren) entsprechen den übrigen Laufbursche-Seiten.
 
-const BUILD = 'v1';
+const BUILD = 'v2';
 
 const BASE = 'https://github.com/Laufbursche42/niu-update/raw/main/';
 // Die Dokumente im Fuß werden auf GitHub gerendert verlinkt, sprachabhängig wie in sf-unlock.
